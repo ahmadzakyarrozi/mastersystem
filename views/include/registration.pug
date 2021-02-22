@@ -1,0 +1,40 @@
+extends ../layout
+
+block content 
+    .container
+        .alert(class="alert-danger", role="alert", id="error-group", style="display: none")
+        ul(id="errors")   
+    .register-box 
+        
+        .header 
+            h2 Registrasi
+        form(action="/auth_reg", method="post")
+            .form-group 
+                label(for="email") Email 
+                input(type="email" placeholder = "Masukkan Email Anda" name="email" class="form-control shadow-none" id="email")
+            .form-group 
+                label(for="fullname") Nama Lengkap
+                input(type="text" placeholder="Masukkan Nama Lengkap Anda" name="fullname" class="form-control" id="fullname")
+            .form-group 
+                label(for="nohp") Nomor Handphone
+                input(type="number" name="nohp" class="form-control" id="nohp")
+
+            .form-group 
+                label(for="tgllahir") Tanggal Lahir
+                input(type="date" name="tgllahir" class="form-control" id="tgllahir")
+            .form-group 
+                label(for="jenis_kelamin") Jenis Kelamin
+                select(name="jenis_kelamin" class="form-control" id="jenis_kelamin")
+                    each val in ['laki', 'perempuan']
+                         option=val
+                       
+            .form-group
+                label(for="password") Password 
+                input(type="password" placeholder="Masukkan Password Anda" name="password" class="form-control" id="password")
+            .form-group
+                label(for="cpassword") Konfirmasi Password 
+                input(type="password" placeholder="Masukkan Konfrimasai Password Anda" name="cpassword" class="form-control" id="cpassword")
+
+            
+            
+            button(type="submit" class="btn btn-primary" id="register") Register
